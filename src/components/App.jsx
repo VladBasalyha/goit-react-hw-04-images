@@ -54,12 +54,12 @@ export const App = () => {
             setStatusForResponse(true);
           }
           // spread previous page images and current images of page
-          setGallery([...gallery, ...r.hits]);
+          setGallery(g => [...g, ...r.hits]);
           setLoading(false);
           setButtonStatus(false);
         });
     }
-  }, [searchInputValue, page, gallery]);
+  }, [searchInputValue, page]);
 
   const onSearchImages = data => {
     if (searchInputValue === data) {
