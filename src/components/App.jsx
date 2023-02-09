@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { LoadMoreButton } from './Button/Button';
 import { SearchBar } from './SearchBar/SearchBar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
@@ -9,6 +8,7 @@ import { Loader } from './Loader/Loader';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import React from 'react';
 
 export const App = () => {
   // array for saving images on fetching form, and pressing loading button
@@ -53,13 +53,13 @@ export const App = () => {
             toast.info('No images found');
             setStatusForResponse(true);
           }
-          // spread previous page images and current images of current page
+          // spread previous page images and current images of page
           setGallery([...gallery, ...r.hits]);
           setLoading(false);
           setButtonStatus(false);
         });
     }
-  }, [searchInputValue, page]);
+  }, [searchInputValue, page, gallery]);
 
   const onSearchImages = data => {
     if (searchInputValue === data) {

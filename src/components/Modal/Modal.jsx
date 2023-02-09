@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
@@ -7,8 +6,8 @@ import css from '../Modal/Modal.module.css';
 const modalRoot = document.querySelector('#modalRoot');
 
 export const Modal = ({ children, onClose }) => {
-  useEffect(() => window.addEventListener('keydown', onEscape), []);
   useEffect(() => {
+    window.addEventListener('keydown', onEscape);
     return () => window.removeEventListener('keydown', onEscape);
   }, []);
 
